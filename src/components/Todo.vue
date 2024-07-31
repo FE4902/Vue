@@ -7,12 +7,36 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <li v-for="todo in todos" :key="todo.id">
-            {{ todo.text }}
-            <input type="checkbox" :checked="todo.isDone" />
+    <ul class="todo">
+        <li class="todo__item" v-for="todo in todos" :key="todo.id">
+            <span class="todo__text" :class="{ complete: todo.isDone }">{{
+                todo.text
+            }}</span>
+            <input
+                class="todo__checkbox"
+                type="checkbox"
+                v-model="todo.isDone"
+            />
         </li>
     </ul>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.todo {
+    &__item {
+        display: flex;
+        align-content: center;
+        gap: 8px;
+    }
+
+    &__text {
+        &.complete {
+            text-decoration: line-through;
+        }
+    }
+
+    &__checkbox {
+        accent-color: black;
+    }
+}
+</style>

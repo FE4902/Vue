@@ -2,6 +2,9 @@
 import Todo from "./components/Todo.vue";
 
 export default {
+    components: {
+        Todo,
+    },
     data() {
         return {
             todos: [
@@ -11,9 +14,7 @@ export default {
             ],
         };
     },
-    components: {
-        Todo,
-    },
+    methods: {},
 };
 </script>
 
